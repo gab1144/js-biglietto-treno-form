@@ -11,7 +11,6 @@ let kmPercorso;
 let nomeCognome;
 let fasciaEta;
 let prezzoIniziale;
-let sconto;
 let prezzoFinale;
 let offerta;
 let carrozza;
@@ -26,7 +25,7 @@ btnGenera.addEventListener('click', function(){
 
   kmPercorso = parseInt (document.getElementById('km-percorso').value);
   nomeCognome = document.getElementById('nome-cognome').value;
-  fasciaEta = document.getElementById('fascia-eta').value;
+  fasciaEta = parseInt (document.getElementById('fascia-eta').value);
   prezzoIniziale= kmPercorso * 0.21;
   datiValidi = true;
 
@@ -64,11 +63,11 @@ btnGenera.addEventListener('click', function(){
     document.getElementById('nome-passeggero').innerHTML= nomeCognome;
     
     //calcola l'eventuale sconto sulla base della fascia di età
-    if (fasciaEta === "Minorenne") {
+    if (fasciaEta <= 17) {
       prezzoFinale = prezzoIniziale - (prezzoIniziale * scontoMinorenni / 100);
       offerta = "Biglietto ridotto";
 
-    } else if (fasciaEta === "Over 65") {
+    } else if (fasciaEta >= 65) {
       prezzoFinale =prezzoIniziale - (prezzoIniziale *scontoOver65 / 100);
       offerta = "Biglietto ridotto";
       } else {
