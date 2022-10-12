@@ -87,49 +87,52 @@
         </div>
         
         <!-- ========== biglietto ========== -->
-        <div id="biglietto" class="col-6 offset-3 rounded-3 bg-white shadow d-none">
+        <div class="col d-flex justify-content-center">
+          <div id="biglietto" class="rounded-3 bg-white shadow d-none">
           
-          <h2>Biglietto ATB</h2>
-          <div class="content d-flex">
-            <div class="nome-biglietto">
-              <h3>Nome passegero</h3>
-              <span id="nome-passeggero"></span>
+            <h2>Biglietto ATB</h2>
+            <div class="content d-flex flex-shrink-0">
+              <div class="nome-biglietto">
+                <h3>Nome passegero</h3>
+                <span id="nome-passeggero"></span>
+              </div>
+              
+              <div class="info-biglietto d-flex flex-wrap">
+                
+                <div>
+                  <h3>Km percorso</h3>
+                  <span id="km" ></span>
+                </div>
+                
+                <div>
+                  <h3>Fascia di età</h3>
+                  <span id="eta"></span>
+                </div>
+                
+                <div>
+                  <h3>Prezzo del viaggio (0.21 € al km)</h3>
+                  <span id="prezzo-i"></span>
+                </div>
+  
+                <div>
+                  <h3>Percentuale di sconto applicato: </h3>
+                  <span id="sconto"></span>
+                </div>
+                
+                <div>
+                  <h3>Prezzo finale: </h3>
+                  <span id="prezzo-f"></span>
+                </div>
+                
+              </div>
+  
             </div>
             
-            <div class="info-biglietto d-flex flex-wrap">
-              
-              <div>
-                <h3>Km percorso</h3>
-                <span id="km" ></span>
-              </div>
-              
-              <div>
-                <h3>Fascia di età</h3>
-                <span id="eta"></span>
-              </div>
-              
-              <div>
-                <h3>Prezzo del viaggio (0.21 € al km)</h3>
-                <span id="prezzo-i"></span>
-              </div>
-
-              <div>
-                <h3>Percentuale di sconto applicato: </h3>
-                <span id="sconto"></span>
-              </div>
-              
-              <div>
-                <h3>Prezzo finale: </h3>
-                <span id="prezzo-f"></span>
-              </div>
-              
-            </div>
-
           </div>
-          
+          <!-- ========== /biglietto ========== -->
         </div>
-        <!-- ========== /biglietto ========== -->
         
+          
         <!-- ========== bottone nuovo biglietto ========== -->
         <div id="nuovo-biglietto" class="col-12 text-center d-none">
           <button class="btn btn-success" id="new">Nuovo Biglietto</button>

@@ -71,7 +71,9 @@ h1 {
 
 #biglietto {
   text-transform: uppercase;
-  font-weight: 600; 
+  font-weight: 600;
+  width: 900px;
+  padding: 30px;
 }
 
 #biglietto .content h3 {
