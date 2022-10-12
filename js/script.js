@@ -9,6 +9,7 @@ const scontoOver65 = 40;
 let datiValidi = true;
 let kmPercorso;
 let nomeCognome;
+let fasciaEta;
 let prezzoIniziale;
 let sconto;
 let prezzoFinale;
@@ -22,34 +23,60 @@ btnGenera.addEventListener('click', function(){
 
   kmPercorso = parseInt (document.getElementById('km-percorso').value);
   nomeCognome = document.getElementById('nome-cognome').value;
+  fasciaEta = document.getElementById('fascia-eta').value;
   prezzoIniziale= kmPercorso * 0.21;
   datiValidi = true;
 
-  if (kmPercorso < 1 || isNaN(kmPercorso )) {
+  //controlla tutte le possibili condizioni di errore in modo da generare un messaggio personallizzato
+  if ((kmPercorso < 1 || isNaN(kmPercorso )) && nomeCognome === "" && fasciaEta === "") {
+    alert("Devi inserire un numero di chilometri maggiore di 0, il nome del passeggero e la fascia di età");
+    datiValidi = false;
+  } else if ((kmPercorso < 1 || isNaN(kmPercorso )) && nomeCognome === "") {
+    alert("Devi inserire un numero di chilometri maggiore di 0 e il nome del passeggero");
+    datiValidi = false;
+  } else if ((kmPercorso < 1 || isNaN(kmPercorso )) && fasciaEta === "") {
+    alert("Devi inserire un numero di chilometri maggiore di 0 e la fascia di età");
+    datiValidi = false;
+  } else if (fasciaEta === "" && nomeCognome === "") {
+    alert("Devi inserire la fascia di età e il nome del passeggero");
+    datiValidi = false;
+  } else if (kmPercorso < 1 || isNaN(kmPercorso )) {
     alert("Devi inserire un numero di chilometri maggiore di 0");
+    datiValidi = false;
+  } else if (nomeCognome === "") {
+    alert("Devi inserire il nome del passeggero");
+    datiValidi = false;
+  } else if (fasciaEta === "") {
+    alert("Devi inserire la fascia di età");
     datiValidi = false;
   }
   
+  //se tutti i dati sono validi
   if (datiValidi) {
+    //rende visibili il biglietto e il bottone per la generazione di un nuovo biglietto
     biglietto.classList.remove('d-none');
     nuovoBiglietto.classList.remove('d-none');
+
+    //stampa i dati già certi
     document.getElementById('km').innerHTML= kmPercorso + " km";
-    document.getElementById('eta').innerHTML= document.getElementById('fascia-eta').value;
+    document.getElementById('eta').innerHTML= fasciaEta;
     document.getElementById('prezzo-i').innerHTML= prezzoIniziale.toFixed(2)  + " €";
     document.getElementById('nome-passeggero').innerHTML= nomeCognome;
     
-    if (document.getElementById('fascia-eta').value === "Minorenne") {
+    //calcola l'eventuale sconto sulla base della fascia di età
+    if (fasciaEta === "Minorenne") {
       prezzoFinale = prezzoIniziale - (prezzoIniziale * scontoMinorenni / 100);
       sconto = scontoMinorenni;
-    } else if (document.getElementById('fascia-eta').value === "Over 65") {
+    } else if (fasciaEta === "Over 65") {
       prezzoFinale =prezzoIniziale - (prezzoIniziale *scontoOver65 / 100);
       sconto = scontoOver65;
       } else {
         prezzoFinale = prezzoIniziale;
         sconto = 0;
     }
-  
-    document.getElementById('sconto').innerHTML= sconto + " %";
+    
+    //stampa la percentuale di sconto applicata e l'importo finale
+    document.getElementById('sconto').innerHTML= sconto + "%";
     document.getElementById('prezzo-f').innerHTML= prezzoFinale.toFixed(2) + " €";
   }
 });
