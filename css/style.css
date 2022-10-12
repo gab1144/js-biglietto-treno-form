@@ -15,6 +15,11 @@ main {
   margin: 50px auto;
 }
 
+h1 {
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
 [class^="col"] {
   padding: 30px;
 }
