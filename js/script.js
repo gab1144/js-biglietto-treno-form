@@ -19,9 +19,10 @@ btnGenera.addEventListener('click', function(){
   kmPercorso = parseInt (document.getElementById('km-percorso').value);
   nomeCognome = document.getElementById('nome-cognome').value;
   prezzoIniziale= kmPercorso * 0.21;
-
-  if (kmPercorso < 1 ) {
-    alert("Devi inserire un numero di chilometri maggiore di 0 e un'età valida (maggiore o uguale a 0)");
+  datiValidi = true;
+  
+  if (kmPercorso < 1 || isNaN(kmPercorso )) {
+    alert("Devi inserire un numero di chilometri maggiore di 0");
     datiValidi = false;
   }
   
