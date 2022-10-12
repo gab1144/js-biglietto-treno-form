@@ -13,6 +13,9 @@ let fasciaEta;
 let prezzoIniziale;
 let sconto;
 let prezzoFinale;
+let offerta;
+let carrozza;
+let codiceCp;
 
 //scrive in tabella i valori relativi agli sconti
 document.getElementById('sconto-min').innerHTML= scontoMinorenni + "%";
@@ -58,25 +61,30 @@ btnGenera.addEventListener('click', function(){
     nuovoBiglietto.classList.remove('d-none');
 
     //stampa i dati già certi
-    document.getElementById('km').innerHTML= kmPercorso + " km";
-    document.getElementById('eta').innerHTML= fasciaEta;
-    document.getElementById('prezzo-i').innerHTML= prezzoIniziale.toFixed(2)  + " €";
     document.getElementById('nome-passeggero').innerHTML= nomeCognome;
     
     //calcola l'eventuale sconto sulla base della fascia di età
     if (fasciaEta === "Minorenne") {
       prezzoFinale = prezzoIniziale - (prezzoIniziale * scontoMinorenni / 100);
-      sconto = scontoMinorenni;
+      offerta = "Biglietto ridotto";
+
     } else if (fasciaEta === "Over 65") {
       prezzoFinale =prezzoIniziale - (prezzoIniziale *scontoOver65 / 100);
-      sconto = scontoOver65;
+      offerta = "Biglietto ridotto";
       } else {
         prezzoFinale = prezzoIniziale;
-        sconto = 0;
+        offerta = "Biglietto standard";
     }
-    
-    //stampa la percentuale di sconto applicata e l'importo finale
-    document.getElementById('sconto').innerHTML= sconto + "%";
+
+    //genera casualmente il numero della carrozza e il codice CP
+    carrozza=Math.floor(Math.random() * 20) + 1;;
+    codiceCp=Math.floor(Math.random() * 99999) + 1;;
+
+
+    //stampa i dati rimanenti e il costo del biglietto
+    document.getElementById('offerta').innerHTML= offerta;
+    document.getElementById('carrozza').innerHTML= carrozza;
+    document.getElementById('codice-cp').innerHTML= codiceCp;
     document.getElementById('prezzo-f').innerHTML= prezzoFinale.toFixed(2) + " €";
   }
 });
