@@ -1,3 +1,7 @@
+:root {
+  --width-nome-biglietto: 20%;
+}
+
 body {
   background: orange;
   padding: 0 24px;
@@ -8,11 +12,7 @@ body {
 }
 
 main {
-  margin-top: 100px;
-}
-
-[class^="col"] :not(:last-child) {
-  margin-bottom: 30px;
+  margin: 100px auto;
 }
 
 [class^="col"] {
@@ -25,4 +25,56 @@ main {
 
 .form button.btn {
   height: fit-content
+}
+
+.nome-biglietto {
+  width: var(--width-nome-biglietto);
+  background-color: rgba(255, 166, 0, 0.521);
+}
+
+.info-biglietto {
+  width: calc(100% - var(--width-nome-biglietto));
+}
+
+.info-biglietto > div, .nome-biglietto{
+  padding: 20px 30px;
+}
+
+#biglietto .content {
+  border: 2px solid black;
+  height: 200px;
+}
+
+.nome-biglietto {
+  border-right: 2px solid black;
+}
+
+#biglietto div {
+  height: 100%;
+}
+
+#biglietto .content .nome-biglietto, #biglietto .content  .info-biglietto div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#biglietto .content  .info-biglietto > div {
+  width: calc(100% / 3);
+  height: 50%;
+}
+
+#biglietto {
+  text-transform: uppercase;
+  font-weight: 600; 
+}
+
+#biglietto .content h3 {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+#biglietto h2 {
+  font-size: 20px;
+  font-weight: 900;
 }

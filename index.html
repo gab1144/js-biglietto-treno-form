@@ -18,8 +18,8 @@
   <main>
     <div class="container-fluid">
       <div class="row d-flex row-cols-2 gy-3">
-        <h1>Azienda Trasporti Booleani</h1>
-        <div class="col-10 w-100 rounded-3 bg-white shadow">
+        <h1 class="text-center w-100">Azienda Trasporti Booleani</h1>
+        <div class="col-10 offset-1 rounded-3 bg-white shadow">
           <div class="container-fluid">
             <div class="row">
               <div class="col-4 offset-4">
@@ -45,7 +45,7 @@
               
             </div>
 
-            <div class="form row g-3">
+            <div class="form row gy-3">
               <div class="col-4">
                 <label for="nome-cognome" class="form-label">Nome e cognome</label>
                 <input type="text" class="form-control" id="nome-cognome">
@@ -70,31 +70,45 @@
           </div>
         </div>
 
-        <div id="biglietto" class="col-6 w-100 rounded-3 bg-white shadow d-none">
+        <div id="biglietto" class="col-6 offset-3 rounded-3 bg-white shadow d-none">
 
-          <span class="d-block">
-            <strong>Nome passeggero: </strong><span id="nome-passeggero" class="rounded bg-light p-1 border border-1 border-dark"></span>
-          </span>
+          <h2>Biglietto ATB</h2>
+          <div class="content d-flex">
+            <div class="nome-biglietto">
+              <h3>Nome passegero</h3>
+              <span id="nome-passeggero"></span>
+            </div>
 
-          <span class="d-block">
-            <strong>Numero di chilometri: </strong><span id="km" class="rounded bg-light p-1 border border-1 border-dark"></span>
-          </span>
+            <div class="info-biglietto d-flex flex-wrap">
+              
+              <div>
+                <h3>Km percorso</h3>
+                <span id="km" ></span>
+              </div>
 
-          <span class="d-block">
-            <strong>Età: </strong><span id="eta" class="rounded bg-light p-1 border border-1 border-dark"></span>
-          </span>
+              <div>
+                <h3>Fascia di età</h3>
+                <span id="eta"></span>
+              </div>
 
-          <span class="d-block">
-            <strong>Prezzo del viaggio (0.21 € al km): </strong><span id="prezzo-i" class="rounded bg-light p-1 border border-1 border-dark"></span>
-          </span>
+              <div>
+                <h3>Prezzo del viaggio (0.21 € al km)</h3>
+                <span id="prezzo-i"></span>
+              </div>
 
-          <span class="d-block">
-            <strong>Percentuale di sconto applicato: </strong><span id="sconto" class="rounded bg-light p-1 border border-1 border-dark"></span>
-          </span>
+              <div>
+                <h3>Percentuale di sconto applicato: </h3>
+                <span id="sconto"></span>
+              </div>
 
-          <span class="d-block">
-            <strong>Prezzo finale: </strong><span id="prezzo-f" class="rounded bg-light p-1 border border-1 border-dark"></span>
-          </span>
+              <div>
+                <h3>Prezzo finale: </h3>
+                <span id="prezzo-f"></span>
+              </div>
+
+            </div>
+
+          </div>
           
         </div>
       </div>
