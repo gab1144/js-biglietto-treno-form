@@ -6,15 +6,7 @@ const nuovoBiglietto = document.querySelector('#nuovo-biglietto');
 const prezzoKm = 0.21;
 const scontoMinorenni = 20;
 const scontoOver65 = 40;
-let datiValidi = true;
-let kmPercorso;
-let nomeCognome;
-let fasciaEta;
-let prezzoIniziale;
-let prezzoFinale;
-let offerta;
-let carrozza;
-let codiceCp;
+let datiValidi = true, kmPercorso, nomeCognome, fasciaEta, prezzoIniziale, prezzoFinale, offerta, carrozza, codiceCp;
 
 //scrive in tabella i valori relativi agli sconti
 document.getElementById('sconto-min').innerHTML= scontoMinorenni + "%";
@@ -76,8 +68,8 @@ btnGenera.addEventListener('click', function(){
     }
 
     //genera casualmente il numero della carrozza e il codice CP
-    carrozza=Math.floor(Math.random() * 20) + 1;;
-    codiceCp=Math.floor(Math.random() * 99999) + 1;;
+    carrozza=Math.floor(Math.random() * 20) + 1;
+    codiceCp=Math.floor(Math.random() * (99999-10000) + 1) + 10000;
 
 
     //stampa i dati rimanenti e il costo del biglietto
